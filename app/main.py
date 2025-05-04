@@ -26,6 +26,11 @@ def conectar_oracle():
 
 
 
+@app.route('/')
+def home():
+    return "API Ativa!"
+
+
 #Recolher dados de uma estação no banco
 @app.route('/dados_estacao', methods=['GET'])
 def dados_estacao():
