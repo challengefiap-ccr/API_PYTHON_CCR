@@ -1,6 +1,7 @@
-from flask import Flask,request, jsonify
+from flask import request, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
+from app import app
 import os
 import joblib
 import pandas as pd
@@ -11,7 +12,7 @@ oracledb.defaults.force_thin = True
 modelo = joblib.load('app/modelo_tempo_atraso.pkl')
 
 
-app = Flask(__name__)
+
 CORS(app)  
 
 def conectar_oracle():
@@ -266,13 +267,3 @@ def deletar_report(id_report):
     except Exception as e:
         conn.rollback()
         return jsonify({'erro': str(e)}), 500
-
-
-
-
-
-
-
-
-
-
